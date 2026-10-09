@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manage portfolios</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="top"></div>
+<main class="container" id="app">
+  <div class="page-head page-head-row">
+    <div><h1>Manage portfolios</h1><p class="muted">View, edit or delete the portfolios saved in the database.</p></div>
+    <a class="btn btn-primary" href="form.html">Create portfolio</a>
+  </div>
+  <div id="list"><p class="muted">Loading…</p></div>
+</main>
+<div id="foot"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script>
+shell('manage', 'Manage portfolios');
+const list = document.getElementById('list');
+
+async function load() {
+  try {
+    const rows = await listPortfolios();
+    if (!rows.length) {
+      list.innerHTML = '<div class="empty"><h2>No portfolios yet</h2><p>Create your first portfolio and it will show up here.</p><a class="btn btn-primary" href="form.html">Create portfolio</a></div>';
+      return;
+    }
+    list.innerHTML = '<div class="manage-list">' + rows.map(r => `
+      <article class="manage-item">
+        <div class="avatar">${r.photo_data ? `<img src="${esc(r.photo_data)}" alt="">` : esc(initials(r.full_name))}</div>
+        <div class="manage-main"><h2>${esc(r.full_name)}</h2><p class="muted">${esc(r.headline || r.email)}</p>
+          <p class="meta">Template: ${esc(TEMPLATES[r.template].name)} · Updated ${esc(fmtDate(r.updated_at))}</p></div>
+        <div class="manage-actions">
+          <a class="btn btn-primary btn-sm" href="preview.html?id=${r.id}">View</a>
+          <a class="btn btn-ghost btn-sm" href="form.html?id=${r.id}">Edit</a>
+          <a class="btn btn-ghost btn-sm" href="templates.html?id=${r.id}">Template</a>
+          <button class="btn btn-danger btn-sm" data-del="${r.id}" data-name="${esc(r.full_name)}">Delete</button>
+        </div></article>`).join('') + '</div>';
+  } catch (err) { list.innerHTML = ''; showError(err); }
+}
+
+list.addEventListener('click', async e => {
+  const b = e.target.closest('[data-del]');
+  if (!b || !confirm('Delete ' + b.dataset.name + ' permanently?')) return;
+  b.disabled = true;
+  try { await deletePortfolio(+b.dataset.del); flash('success', 'Portfolio deleted.'); location.reload(); }
+  catch (err) { b.disabled = false; showError(err); }
+});
+load();
+</script>
+</body>
+</html>

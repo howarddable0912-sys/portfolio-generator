@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio information</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="top"></div>
+<main class="container" id="app">
+  <div class="page-head"><h1 id="heading">Create your portfolio</h1>
+    <p class="muted">Fields marked * are required. Empty rows are ignored when you save.</p></div>
+
+  <form class="form" id="form" novalidate>
+    <fieldset class="panel">
+      <legend>Personal information</legend>
+      <div class="photo-field">
+        <div class="photo-preview" id="photo-preview"><span>Photo</span></div>
+        <div>
+          <label for="photo">Profile picture</label>
+          <input type="file" id="photo" accept="image/jpeg,image/png,image/webp,image/gif">
+          <small class="muted">JPG, PNG, WEBP or GIF. It is resized automatically.</small>
+          <label class="check" id="remove-wrap" hidden><input type="checkbox" id="remove-photo"> Remove current picture</label>
+        </div>
+      </div>
+      <div class="grid g2">
+        <label>Full name *<input id="full_name" required maxlength="120"></label>
+        <label>Headline<input id="headline" maxlength="160" placeholder="Junior web developer"></label>
+        <label>Email *<input id="email" type="email" required maxlength="160"></label>
+        <label>Contact number<input id="phone" maxlength="40"></label>
+      </div>
+      <label>Address<input id="address" maxlength="255"></label>
+      <label>About me<textarea id="about" rows="5" maxlength="4000" placeholder="A short introduction about you."></textarea></label>
+    </fieldset>
+
+    <fieldset class="panel"><legend>Education</legend><div id="list-edu"></div>
+      <button type="button" class="btn btn-ghost btn-sm" data-add="edu">+ Add education</button></fieldset>
+    <fieldset class="panel"><legend>Skills</legend><div id="list-skill"></div>
+      <button type="button" class="btn btn-ghost btn-sm" data-add="skill">+ Add skill</button></fieldset>
+    <fieldset class="panel"><legend>Projects</legend><div id="list-proj"></div>
+      <button type="button" class="btn btn-ghost btn-sm" data-add="proj">+ Add project</button></fieldset>
+    <fieldset class="panel"><legend>Work experience</legend><div id="list-exp"></div>
+      <button type="button" class="btn btn-ghost btn-sm" data-add="exp">+ Add experience</button></fieldset>
+    <fieldset class="panel"><legend>Social media / website links</legend><div id="list-link"></div>
+      <button type="button" class="btn btn-ghost btn-sm" data-add="link">+ Add link</button></fieldset>
+
+    <div class="form-actions">
+      <button class="btn btn-primary btn-lg" type="submit" id="save">Save and choose a template</button>
+      <a class="btn btn-ghost btn-lg" id="cancel" href="index.html">Cancel</a>
+    </div>
+  </form>
+</main>
+<div id="foot"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/form.js"></script>
+</body>
+</html>

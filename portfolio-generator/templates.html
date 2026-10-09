@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose a template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="top"></div>
+<main class="container" id="app">
+  <div class="page-head"><h1>Choose a template</h1><p class="muted" id="sub">Loading your portfolio…</p></div>
+  <div class="tpl-grid" id="grid"></div>
+</main>
+<div id="foot"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script>
+shell('create', 'Choose a template');
+const id = +qs.get('id');
+
+function fit() {
+  document.querySelectorAll('[data-frame]').forEach(w => {
+    const s = w.clientWidth / 1100;
+    w.querySelector('iframe').style.transform = 'scale(' + s + ')';
+    w.style.height = Math.round(760 * s) + 'px';
+  });
+}
+
+(async () => {
+  try {
+    const p = id ? await getPortfolio(id) : null;
+    if (!p) { flash('error', 'Save a portfolio first, then choose its template.'); location.replace('form.html'); return; }
+    document.getElementById('sub').innerHTML = 'Each preview below uses <strong>' + esc(p.full_name) + '</strong>\'s saved information.';
+    document.getElementById('grid').innerHTML = Object.entries(TEMPLATES).map(([n, t]) => {
+      const cur = p.template === +n;
+      return `<article class="tpl-card${cur ? ' is-current' : ''}">
+        <div class="frame-wrap" data-frame><iframe src="preview.html?id=${id}&t=${n}&mode=bare" title="${esc(t.name)} template preview" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="tpl-body"><h2>Template ${n} · ${esc(t.name)}${cur ? ' <span class="badge">Current</span>' : ''}</h2>
+          <p class="muted">${esc(t.desc)}</p>
+          <div class="tpl-actions"><button class="btn btn-primary" data-use="${n}">Use this template</button>
+          <a class="btn btn-ghost" target="_blank" rel="noopener" href="preview.html?id=${id}&t=${n}">Full preview</a></div></div></article>`;
+    }).join('');
+    fit();
+  } catch (err) { document.getElementById('sub').textContent = ''; showError(err); }
+})();
+
+document.getElementById('grid').addEventListener('click', async e => {
+  const b = e.target.closest('[data-use]');
+  if (!b) return;
+  b.disabled = true;
+  try {
+    await setTemplate(id, +b.dataset.use);
+    flash('success', 'Template saved: ' + TEMPLATES[b.dataset.use].name + '.');
+    location.href = 'preview.html?id=' + id;
+  } catch (err) { b.disabled = false; showError(err); }
+});
+window.addEventListener('load', fit);
+window.addEventListener('resize', fit);
+</script>
+</body>
+</html>

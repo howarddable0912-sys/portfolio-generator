@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <link rel="stylesheet" id="tcss">
+  <link rel="stylesheet" id="fonts">
+</head>
+<body>
+<div id="bar"></div>
+<div id="view"><p style="font-family:system-ui;padding:24px">Loading…</p></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="js/config.js"></script>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/templates.js"></script>
+<script>
+const id = +qs.get('id');
+const bare = qs.get('mode') === 'bare';
+const view = document.getElementById('view');
+
+(async () => {
+  try {
+    const p = id ? await getPortfolio(id) : null;
+    if (!p) { flash('error', 'That portfolio does not exist.'); location.replace('manage.html'); return; }
+    let t = +qs.get('t') || p.template;
+    if (!TEMPLATES[t]) t = p.template;
+
+    document.title = p.full_name + ' · Portfolio';
+    document.getElementById('fonts').href = 'https://fonts.googleapis.com/css2?' + FONTS[t] + '&display=swap';
+    document.getElementById('tcss').href = 'css/t' + t + '.css';
+    view.innerHTML = RENDERERS[t](p);
+
+    if (bare) return;
+    const f = takeFlash();
+    document.head.insertAdjacentHTML('beforeend', '<link rel="stylesheet" href="css/toolbar.css">');
+    document.getElementById('bar').innerHTML = `<div class="fx-bar">
+      <div class="fx-info"><strong>Template ${t} · ${esc(TEMPLATES[t].name)}</strong>
+        ${t !== p.template ? '<span class="fx-note">Preview only. Not saved yet.</span>' : ''}
+        ${f ? `<span class="fx-flash">${esc(f[1])}</span>` : ''}</div>
+      <div class="fx-actions">
+        ${t !== p.template ? '<button class="fx-btn fx-primary" id="use">Use this template</button>' : ''}
+        <a class="fx-btn" href="templates.html?id=${id}">Change template</a>
+        <a class="fx-btn" href="form.html?id=${id}">Edit</a>
+        <a class="fx-btn" href="preview.html?id=${id}&mode=bare" target="_blank" rel="noopener">Open clean page</a>
+        <button class="fx-btn fx-danger" id="del">Delete</button>
+        <a class="fx-btn" href="manage.html">Manage</a>
+      </div></div>`;
+
+    const use = document.getElementById('use');
+    if (use) use.onclick = async () => {
+      use.disabled = true;
+      await setTemplate(id, t);
+      flash('success', 'Template saved: ' + TEMPLATES[t].name + '.');
+      location.href = 'preview.html?id=' + id;
+    };
+    document.getElementById('del').onclick = async () => {
+      if (!confirm('Delete this portfolio permanently?')) return;
+      await deletePortfolio(id);
+      flash('success', 'Portfolio deleted.');
+      location.href = 'manage.html';
+    };
+  } catch (err) {
+    view.innerHTML = '<p style="font-family:system-ui;padding:24px;color:#b00020">' +
+      (configured() ? 'Could not load this portfolio: ' + esc(err.message) : 'Database not connected. Fill in js/config.js.') + '</p>';
+  }
+})();
+</script>
+</body>
+</html>
