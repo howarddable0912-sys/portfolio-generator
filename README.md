@@ -11,17 +11,6 @@
 <p align="center">- JAVA, CHRISTIAN DUIN C.</p>
 
 
-Group 2
-- DABLE, HOWARD JAKE N.
-- LIBATON, VINCENT A.
-- RANOCO, JAMES ALFRED A.
-- SEMBLANTE, BRYLE G.
-- AMAMANGPANG, ANDRI A.
-- SUMAYANG, JHON RAVE C.
-- JAVA, CHRISTIAN DUIN C.
-
-
-
 <h1 align="center">FolioForge</h1>
 <p align="center">Online Portfolio Template Generator</p>
 <p align="center"><a href="https://tangerine-sprinkles-0867bf.netlify.app">View the live site</a></p>
