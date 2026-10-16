@@ -118,3 +118,20 @@ textarea{resize:vertical}
   .photo-field{flex-direction:column;align-items:flex-start}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- Dark mode (front page: <body class="dark">) ---------- */
+body.dark{
+  --ink:#e8ecf4; --muted:#9aa7bb; --line:#2a3447; --paper:#0e131c; --white:#171e2b;
+  --brand:#7c94ff; --brand-dark:#6580f5; --danger:#ff7b86; --ok:#4cd2a3;
+  color-scheme:dark;
+}
+body.dark .btn-primary{color:#0e131c}
+body.dark .btn-ghost:hover{border-color:#44536e}
+body.dark .nav a.active,
+body.dark .step-n{background:#222c4a}
+body.dark .nav a:hover{background:#1d2535}
+body.dark .btn:focus-visible,
+body.dark .nav a:focus-visible{outline-color:#7c94ff}
+body.dark .teaser-1{background:#171e2b;border-color:#e8ecf4}
+body.dark .teaser-2{background:linear-gradient(135deg,#3730a3,#0e7490)}
+body.dark .teaser-3{background:#e0b83a;color:#111;border-color:#e8ecf4;box-shadow:6px 6px 0 #e8ecf4}
