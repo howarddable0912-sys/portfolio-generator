@@ -14,4 +14,6 @@ AMAMANGPANG, ANDRI A.
 SUMAYANG, JHON RAVE C.
 JAVA, CHRISTIAN DUIN C.
 
-![image alt]()
+
+
+![image alt](https://github.com/howarddable0912-sys/portfolio-generator/blob/583a6b49bac939809a26a7623db44679ce1b9a47/ManagePage.png)
