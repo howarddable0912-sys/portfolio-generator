@@ -18,6 +18,8 @@ Group 2
 <h1 align="center">FolioForge</h1>
 <p align="center">Online Portfolio Template Generator</p>
 <p align="center"><a href="https://tangerine-sprinkles-0867bf.netlify.app">View the live site</a></p>
+<p align="left"><a href="https://www.netlify.com/">NETLIFY WEBSITE</a></p>
+<p align="left"><a href="https://supabase.com/">SUPABASE WEBSITE</a></p>
 
 <h3 align="center">Home Page</h3>
 <p align="center"><img src="https://github.com/howarddable0912-sys/portfolio-generator/blob/55feaa6902c6ee9ba9ac7f7357b81bee0f8a133d/HomePage.png" alt="FolioForge home page" width="90%"></p>
