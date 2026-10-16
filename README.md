@@ -1,4 +1,13 @@
 
+<p align="center">GROUP 2</p>
+<p align="center">AMAMANGPANG, ANDRI A.</p>
+<p align="center">LIBATON, VINCENT A.</p>
+<p align="center">DABLE, HOWARD JAKE N.</p>
+<p align="center">RANOCO, JAMES ALFRED A.</p>
+<p align="center">SEMBLANTE, BRYLE G.</p>
+<p align="center">SUMAYANG, JHON RAVE C.</p>
+<p align="center">JAVA, CHRISTIAN DUIN C.</p>
+
 
 <h1 align="center">FolioForge</h1>
 <p align="center">Online Portfolio Template Generator</p>
