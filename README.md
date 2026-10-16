@@ -16,3 +16,5 @@ Group 2
 
 
 ![image alt](https://github.com/howarddable0912-sys/portfolio-generator/blob/583a6b49bac939809a26a7623db44679ce1b9a47/ManagePage.png)
+![image alt](https://github.com/howarddable0912-sys/portfolio-generator/blob/583a6b49bac939809a26a7623db44679ce1b9a47/ManagePage.png)
+![image alt](https://github.com/howarddable0912-sys/portfolio-generator/blob/583a6b49bac939809a26a7623db44679ce1b9a47/ManagePage.png)
