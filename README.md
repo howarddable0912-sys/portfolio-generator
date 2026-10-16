@@ -11,4 +11,4 @@
 <p align="center"><img src="https://github.com/howarddable0912-sys/portfolio-generator/blob/15ea497ab6da99227abb1484ef777cb793e13dd0/CreatePage.png" alt="Create portfolio page" width="90%"></p>
 
 <h3 align="center">Manage Portfolios Page</h3>
-<p align="center"><img src="screenshots/manage.png" alt="Manage portfolios page" width="90%"></p>
+<p align="center"><img src="https://github.com/howarddable0912-sys/portfolio-generator/blob/5a50ea7e780e599d0ede7f12cbd3dcab97c4cc3f/ManagePage.png" alt="Manage portfolios page" width="90%"></p>
