@@ -1,13 +1,12 @@
 <h1 align="center">FINAL PROJECT</h1>
-<p align="center">Group 2
-- DABLE, HOWARD JAKE N.
-- LIBATON, VINCENT A.
-- RANOCO, JAMES ALFRED A.
-- SEMBLANTE, BRYLE G.
-- AMAMANGPANG, ANDRI A.
-- SUMAYANG, JHON RAVE C.
-- JAVA, CHRISTIAN DUIN C.</p>
-
+<p align="center">Group 2</p>
+<p align="center">- DABLE, HOWARD JAKE N.</p>
+<p align="center">- LIBATON, VINCENT A.</p>
+<p align="center">- RANOCO, JAMES ALFRED A.</p>
+<p align="center">- SEMBLANTE, BRYLE G.</p>
+<p align="center">- AMAMANGPANG, ANDRI A.</p>
+<p align="center">- SUMAYANG, JHON RAVE C.</p>
+<p align="center">- JAVA, CHRISTIAN DUIN C.</p>
 
 
 Group 2
