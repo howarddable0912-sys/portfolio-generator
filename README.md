@@ -13,6 +13,7 @@
 
 
 <h1 align="center">FolioForge</h1>
+<p align="center"><a href="https://rad-ganache-c15468.netlify.app/">View the live site</a></p>
 <p align="center">Online Portfolio Template Generator</p>
 
 <h3 align="center">Home Page</h3>
