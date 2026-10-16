@@ -13,7 +13,7 @@
 
 <h1 align="center">FolioForge</h1>
 <p align="center">Online Portfolio Template Generator</p>
-<p align="center"><a href="https://tangerine-sprinkles-0867bf.netlify.app">View the live site</a></p>
+<p align="center"><a href="">View the live site</a></p>
 <p align="center"><a href="https://www.netlify.com/">NETLIFY WEBSITE</a></p>
 <p align="center"><a href="https://supabase.com/">SUPABASE WEBSITE</a></p>
 
