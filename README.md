@@ -1,4 +1,6 @@
 <h1 align="center">FINAL PROJECT</h1>
+<h3 align="center">COLLABORATION PROJECT</h3>
+<h3 align="center">(HCI IM WST)</h3>
 <p align="center">Group 2</p>
 <p align="center">- DABLE, HOWARD JAKE N.</p>
 <p align="center">- LIBATON, VINCENT A.</p>
