@@ -135,3 +135,24 @@ body.dark .nav a:focus-visible{outline-color:#7c94ff}
 body.dark .teaser-1{background:#171e2b;border-color:#e8ecf4}
 body.dark .teaser-2{background:linear-gradient(135deg,#3730a3,#0e7490)}
 body.dark .teaser-3{background:#e0b83a;color:#111;border-color:#e8ecf4;box-shadow:6px 6px 0 #e8ecf4}
+
+/* dark: forms, manage list, template picker */
+body.dark input,
+body.dark textarea,
+body.dark select{background:#0e131c;color:var(--ink);border-color:var(--line)}
+body.dark input::placeholder,
+body.dark textarea::placeholder{color:#6b7a91}
+body.dark input:focus-visible,
+body.dark textarea:focus-visible,
+body.dark select:focus-visible{outline-color:#7c94ff}
+body.dark .rep-row{background:#121926;border-color:#33405a}
+body.dark .rm{background:#171e2b;border-color:var(--line)}
+body.dark .rm:hover,
+body.dark .btn-danger:hover{background:#3a1e25}
+body.dark .btn-danger{border-color:#6b2f38}
+body.dark .flash-success{background:#12332a;border-color:#1f5c49}
+body.dark .flash-error{background:#3a1e25;border-color:#6b2f38}
+body.dark .badge,
+body.dark .avatar{background:#222c4a}
+body.dark .empty{border-color:#44536e}
+body.dark .tpl-card.is-current{border-color:var(--brand)}
