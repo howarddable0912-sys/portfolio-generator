@@ -1,4 +1,7 @@
 
+<h1 align="center">FINAL PROJECT</h1>
+<h1 align="center">WST HCI IM</h1>
+
 <p align="center">GROUP 2</p>
 <p align="center">AMAMANGPANG, ANDRI A.</p>
 <p align="center">LIBATON, VINCENT A.</p>
